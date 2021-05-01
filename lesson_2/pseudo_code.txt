@@ -1,0 +1,15 @@
+1.
+Given two integers.
+Add the two integers and return the result.
+
+2.
+Given an array of strings.
+Initialize an empty variable to hold our string.
+Iterate over the array and append (concatenate) the current string to the result variable.
+After iterating over the entire array, return the result string.
+
+3.
+Given an array of integers.
+Initialize an empty variable to be an array with integers in it.
+Iterate over the array and check if the iteration index is an even number (0,2,4...). If it is, add the value at that index of the array to the result array.
+After iterating over the entire array, return the result array.
