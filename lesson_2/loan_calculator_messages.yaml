@@ -1,0 +1,41 @@
+welcome:
+  en: "Welcome to the Loan Calculator!"
+
+invalid_name:
+  en: "Make sure to use a valid name."
+
+hello:
+  en: "Hello"
+
+enter_loan_amount:
+  en: "What is the loan amount?"
+
+enter_apr_amount:
+  en: "What's the Annual Percentage Rate (APR)? Enter without the % symbol."
+
+enter_loan_duration:
+  en: "What's the loan duration in years?"
+
+invalid_number:
+  en: "Hmm... that doesn't look like a valid number."
+
+invalid_operation:
+  en: "Must choose 1, 2, or 3"
+
+loan_amount:
+  en: "Loan amount:"
+
+apr_amount:
+  en: "APR amount:"
+
+loan_duration:
+  en: "Loan duration (in years):"
+
+result_prefix:
+  en: "Your monthly payment amount is:"
+
+calculate_again?:
+  en: "Do you want to perform another calculation? (Y to calculate again)"
+
+goodbye:
+  en: "Thank you for using the Loan Calculator. Goodbye!"
