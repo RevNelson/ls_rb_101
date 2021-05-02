@@ -18,21 +18,15 @@ def number_input(number_word)
       prompt("Hmm... that doesn't look like a valid number.")
     end
   end
-  return number
+  number
 end
 
-def operation_to_message(op)
-  case op
-  when "1"
-    "Adding"
-  when "2"
-    "Subtracting"
-  when "3"
-    "Multiplying"
-  when "4"
-    "Dividing"
-  end
-end
+operation_message = {
+  "1" => "Adding",
+  "2" => "Subtracting",
+  "3" => "Multiplying",
+  "4" => "Dividing"
+}
 
 prompt("Welcome to Calculator! Enter your name:")
 
@@ -75,7 +69,7 @@ loop do
     end
   end
 
-  prompt("#{operation_to_message(operator)} the two numbers...")
+  prompt("#{operation_message[operator]} the two numbers...")
 
   result =
     case operator
