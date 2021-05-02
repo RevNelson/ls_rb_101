@@ -1,63 +1,62 @@
-def prompt(message)
-  puts("=> #{message}")
+require("./calculator_messages.rb")
+
+LANGUAGE = "en"
+
+operation_message = {
+  "1" => "adding",
+  "2" => "subtracting",
+  "3" => "multiplying",
+  "4" => "dividing"
+}
+
+name = ""
+
+def prompt(message, before = nil, after = nil)
+  puts(
+    "=> #{before ? "#{before} " : ""}#{MESSAGES[message] ? MESSAGES[message][LANGUAGE] : message}#{after ? " #{after}" : ""}"
+  )
 end
 
 def valid_number?(number)
-  number.to_i != 0
+  number.to_i.to_s == number || number.to_f.to_s == number
 end
 
-def number_input(number_word)
+def number_input(message)
   number = ""
   loop do
-    prompt("What's the #{number_word} number?")
+    prompt(message)
     number = gets.chomp
     if valid_number?(number)
-      number = number.to_i
+      number = number.to_f
       break
     else
-      prompt("Hmm... that doesn't look like a valid number.")
+      prompt("invalid_number")
     end
   end
   number
 end
 
-operation_message = {
-  "1" => "Adding",
-  "2" => "Subtracting",
-  "3" => "Multiplying",
-  "4" => "Dividing"
-}
+prompt("welcome")
 
-prompt("Welcome to Calculator! Enter your name:")
-
-name = ""
 loop do
   name = gets.chomp
 
   if name.empty?
-    prompt("Make sure to use a valid name.")
+    prompt("invalid_name")
   else
     break
   end
 end
 
-prompt("Hello #{name}")
+prompt("hello", nil, name)
 
 loop do
   # main loop
-  num1 = number_input("first")
+  num1 = number_input("enter_num1")
 
-  num2 = number_input("second")
+  num2 = number_input("enter_num2")
 
-  operator_prompt = <<-MSG
-    What operation would you like to perform?
-    1) add
-    2) subtract
-    3) multiply
-    4) divide
-  MSG
-
-  prompt(operator_prompt)
+  prompt("operator_prompt")
 
   operator = ""
   loop do
@@ -65,11 +64,11 @@ loop do
     if %w[1 2 3 4].include?(operator)
       break
     else
-      prompt("Must choose 1, 2, 3 or 4")
+      prompt("invalid_operation")
     end
   end
 
-  prompt("#{operation_message[operator]} the two numbers...")
+  prompt(operation_message[operator])
 
   result =
     case operator
@@ -83,11 +82,11 @@ loop do
       num1.to_f / num2.to_f
     end
 
-  prompt("The result is: #{result}")
+  prompt("result_prefix", nil, result)
 
-  prompt("Do you want to perform another calculation? (Y to calculate again)")
+  prompt("calculate_again?")
   answer = gets.chomp
   break unless answer.downcase.start_with?("y")
 end
 
-prompt("Thank you for using the calculator. Goodbye!")
+prompt("goodbye")
